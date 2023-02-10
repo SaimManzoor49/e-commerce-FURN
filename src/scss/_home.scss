@@ -55,6 +55,12 @@ cursor: pointer;
     cursor: pointer;
 
 }
+.third-img:hover {
+
+    // transform: scale(1.05);
+    transform:translateY(-5px);
+    transition: all ease 0.5s;
+}
 
 .insta:hover .insta-d {
     display: block;
@@ -72,6 +78,12 @@ cursor: pointer;
 
 
 
+.links:hover{
+    color: $secondary;
+}
+.links:focus{
+    border-bottom: 2px solid $secondary;
+}
 
 
 

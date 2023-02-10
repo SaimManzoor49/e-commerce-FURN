@@ -16,7 +16,7 @@ export default function Zero() {
                 <h1>MANUFACTURER</h1>
                 <small className='fw-bold disabled'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velkhsd poida adipisicing elit. Velkhsd poida.</small><br />
                 <small className='fw-bold disabled'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velkhsd poida adipisicing elit. Velkhsd poida.</small><br />
-                <button className='btn btn-secondary fw-bold rounded-0 mt-1 mt-md-3 mb-0 mb-md-2'>DISCOVER MORE</button>
+                <button className='btn btn-secondary borderBottom text-white fw-bold rounded-0 mt-1 mt-md-3 mb-0 mb-md-2'>DISCOVER MORE</button>
 
 
                 </div>

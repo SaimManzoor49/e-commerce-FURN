@@ -15,7 +15,7 @@ export default function Third() {
                         <h1 className='fw-bold' >GET INSPIRED</h1>
                         <h1 className='fw-bold' >BY OUR INSTAGRAM</h1>
                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae vero ullam ab?</p>
-                        <button className='btn btn-secondary fw-bold rounded-0 mt-1 mt-md-3 mb-0 mb-md-2' >VISIT NOW</button>
+                        <button className='btn btn-secondary borderBottom text-white fw-bold rounded-0 mt-1 mt-md-3 mb-0 mb-md-2' >VISIT NOW</button>
 
                     </div>
                     <div className="col-12 col-md-4 px-0 insta position-relative" onClick={handleNav}><img className='img-fluid third-img' src="https://images.unsplash.com/photo-1615800002234-05c4d488696c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1000&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzQyMzM1Mjg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920" alt="" /><span className='insta-d'><BsInstagram/></span></div>

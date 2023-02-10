@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import productsList from '../../../data/fakeProducts'
 
 export default function PopularProducts() {
@@ -32,7 +32,7 @@ const [isLoading , setIsLoading ] = useState(false)
                     <div className="col-3 "></div>
                     <div className="col-6">
                         <div className="text-center">
-                            <h1>POPULAR PRODUCTS</h1>
+                            <h3 className='fw-bold'>POPULAR PRODUCTS</h3>
                             <small className='fw-bold disabled py-5'>Lorem ipsum dolor sit amet elit.quos id doloribus alias facilis eveniet maiores repudiandae, rem delectus hic nisi ratione! Magni, sapiente!</small>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ const [isLoading , setIsLoading ] = useState(false)
                 <div className="row mb-5">
                     {isLoading?<div className='spinner spinner-border ms-auto me-auto text-secondary'></div>:
                     <div className="col">
-                        <div className="card-group" onClick={()=>{console.log(filteredProducts[0].category)}}>
+                        <div className="card-group" >
                             <div className="card border-0 px-1 rounded">  
                                 <img  style={{height:250}} src={filteredProducts[0].image} className="card-img-top" alt={filteredProducts[0].id} />
                                 <div className="card-body">

@@ -16,7 +16,7 @@ export default function Hero() {
                             <h3 className='disabled fw-bold f1'>70% SALE OFF</h3>
                             <h1 className='fw-bold f2'>FERNITURE AT COST</h1>
                             <h6 className='disabled f3'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem accusantium nihil.</h6>
-                            <button className='btn btn-secondary fw-bold rounded-0 mt-1 mt-md-3 mb-0 mb-md-2 f4' >DISCOVER MORE</button>
+                            <button className='btn btn-secondary borderBottom text-white fw-bold rounded-0 mt-1 mt-md-3 mb-0 mb-md-2 f4' >DISCOVER MORE</button>
                         </div>
                         </div>
 

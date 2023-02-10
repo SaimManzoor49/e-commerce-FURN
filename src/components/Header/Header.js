@@ -21,21 +21,21 @@ export default function index() {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to={''} className="nav-link active"  aria-current="page" href="#">Home</Link>
+                                <Link to={'/'} className="nav-link links active"  aria-current="page" href="#">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={''} className="nav-link" href="#">About</Link>
-                            </li>
-
-                            <li className="nav-item">
-                                <Link to={''} className="nav-link" href="#">Page</Link>
+                                <Link to={'/about'} className="nav-link links " href="#">About</Link>
                             </li>
 
                             <li className="nav-item">
-                                <Link to={''} className="nav-link" href="#">Blog</Link>
+                                <Link to={'/page'} className="nav-link links" href="#">Page</Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link to={'blog'} className="nav-link links" href="#">Blog</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={''} className="nav-link" href="#">Contact</Link>
+                                <Link to={'/contact'} className="nav-link links" href="#">Contact</Link>
                             </li>
 
                         </ul>
@@ -43,7 +43,7 @@ export default function index() {
                             <input className="form-control bg-transparent border-0 me-2 placeholder-color border-bottom border-2 come-top mt-2" type="search" placeholder={`Search Products `} aria-label="Search" />
                             <BsSearch className='search-icon fs-3  ' />
                             <button className="btn  btn-outline-light border-0 text-black me-3 ms-4  mt-2 " type="submit" > Account</button>
-                            <button className="btn btn-outline-light border-0 rounded-5 fs-3 mb-0 me-2 text-black " type="submit"><BiShoppingBag className='mb-2' /></button>
+                            <button className="btn btn-outline-light border-0 rounded-5 fs-3 mb-0 me-2 text-black position-relative " type="submit"><BiShoppingBag className='mb-2' /><span className='count'>12</span></button>
                         </div>
                     </div>
                 </div>
