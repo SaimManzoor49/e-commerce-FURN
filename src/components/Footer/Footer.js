@@ -7,7 +7,7 @@ import { AiFillFacebook,AiFillTwitterSquare,AiFillInstagram } from 'react-icons/
 
 
 
-import logoPath from '../../../assets/logo2.png'
+import logoPath from '../../assets/logo2.png'
 import { Link } from 'react-router-dom'
 
 export default function Footer() {

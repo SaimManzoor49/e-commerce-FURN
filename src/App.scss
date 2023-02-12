@@ -3,10 +3,21 @@
 @import '../src/scss/footer';
 @import '../src/scss/header';
 @import '../src/scss/about';
+@import '../src/scss/contact';
+@import '../src/scss/productDetails';
 
 
 
 
 .disabled{
     color: gray;
+}
+
+.golden{
+    color: rgb(225, 225, 12);
+
+}
+.gray{
+    color:gray;
+
 }
