@@ -1,41 +1,55 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
-import {FiMinus} from 'react-icons/fi'
-import {GrAdd} from 'react-icons/gr'
-import {AiOutlineHeart} from 'react-icons/ai'
+import { FiMinus } from 'react-icons/fi'
+import { GrAdd } from 'react-icons/gr'
+import { AiOutlineHeart } from 'react-icons/ai'
 import Reviews from '../../../components/Reviews'
 import Description from '../../../components/Description'
 import Specification from '../../../components/Specification'
 import Comments from '../../../components/Comments'
 
+
+import fakeProducts from '../../../data/fakeProducts'
+
+
 export default function Index() {
-  let mainImg= 'https://images.unsplash.com/photo-1634643836960-c345b3c3e998?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYxMTQzMDA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
-
-  const[info,setInfo] = useState('reviews')
-  const[count,setCount]   = useState(0)
-  const[imgSrc,setImgSrc]   = useState(mainImg)
-
-  const  img2='https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
-  const  img3='https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
-  const  img4='https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
-  const  img5='https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
-
-  const handleInfo =(e)=>{
+  let mainImg = 'https://images.unsplash.com/photo-1634643836960-c345b3c3e998?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYxMTQzMDA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
+  
+  const [info, setInfo] = useState('reviews')
+  const [count, setCount] = useState(0)
+  const [viewProduct, setViewProduct] = useState(0)
+  const [imgSrc, setImgSrc] = useState(mainImg)
+  
+  const img2 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
+  const img3 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
+  const img4 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
+  const img5 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
+  
+  const handleInfo = (e) => {
     setInfo(e.target.value)
   }
+
   
-  
-  const handleImg =(e)=>{
+  const handleImg = (e) => {
     setImgSrc(e.target.currentSrc)
   }
-
-
-
-
-
-
-
+  
+  
+  
+  const {productId} = useParams()
+  
+  useEffect(() => {
+    
+    
+    const productToShow = fakeProducts.find((p)=>{
+      return productId==p.id;
+      
+    })
+    setViewProduct(productToShow)
+    setImgSrc(productToShow.image)
+  }, [])
+  
   return (
     <>
 
@@ -61,47 +75,47 @@ export default function Index() {
       <div className="container mt-5 mb-3">
         <div className="row">
           <div className="col-12 col-md-6">
-            
-              <img className='img-fluid' src={imgSrc} alt="" />
 
-                <div className="row mt-3 mb-3">
-                  <div className="col-3">
+            <img className='img-fluid' src={imgSrc} alt="" />
 
-              <img className='img-fluid' onClick={handleImg}  src={img2} alt="" />
-                  </div>
-                  <div className="col-3">
-              <img className='img-fluid' onClick={handleImg}  src={img3} alt="" />
+            <div className="row mt-3 mb-3">
+              <div className="col-3">
 
-                  </div>
-                  <div className="col-3">
-             <img className='img-fluid'  onClick={handleImg}  src={img4} alt="" />
+                <img className='img-fluid' onClick={handleImg} src={img2} alt="" />
+              </div>
+              <div className="col-3">
+                <img className='img-fluid' onClick={handleImg} src={img3} alt="" />
 
-                  </div>
-                  <div className="col-3">
+              </div>
+              <div className="col-3">
+                <img className='img-fluid' onClick={handleImg} src={img4} alt="" />
 
-             <img className='img-fluid' onClick={handleImg}  src={img5} alt="" />
-                  </div>
-                </div>
+              </div>
+              <div className="col-3">
+
+                <img className='img-fluid' onClick={handleImg} src={img5} alt="" />
+              </div>
+            </div>
           </div>
 
 
           <div className="col-12 col-md-6">
 
-            <h3>Product Title</h3>
-            <h5 className='text-secondary'>Price</h5>
-            <small>Catagory   : </small><br />
+            <h3>{viewProduct.name}</h3>
+            <h5 className='text-secondary'>{viewProduct.price}</h5>
+            <small>Catagory   : {viewProduct.category}</small><br />
             <small>Avaliablity   : In Stock</small>
             <hr className='mt-3 disabled' />
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa eveniet architecto perferendis maxime molestiae. Eum, delectus fuga corrupti, modi accusantium earum velit aspernatur culpa ut officia consequatur, eligendi iure doloribus!</p>
 
             <div className="btn-group " role="group" aria-label="Basic outlined example">
-              <button type="button" className="btn btn-secondary btn-outline-primary  fs-6 fw-bold px-3" onClick={()=>{setCount(count===0?0:count-1)}}><FiMinus className='mb-1 text-dark'/></button>
+              <button type="button" className="btn btn-secondary btn-outline-primary  fs-6 fw-bold px-3" onClick={() => { setCount(count === 0 ? 0 : count - 1) }}><FiMinus className='mb-1 text-dark' /></button>
               <button type="button" className="btn btn-secondary disabled text-black fw-bold fs-6 px-3 btn-outline-primary">{count}</button>
-              <button type="button" className="btn btn-secondary btn-outline-primary  fs-6 fw-bold px-3" onClick={()=>{setCount(count+1)}}><GrAdd className='mb-1'/></button>
+              <button type="button" className="btn btn-secondary btn-outline-primary  fs-6 fw-bold px-3" onClick={() => { setCount(count + 1) }}><GrAdd className='mb-1' /></button>
             </div><br />
             <button className='btn btn-secondary borderBottom text-white fw-bold rounded-0 mt-1 mt-md-3 mb-0 mb-md-2 f4 px-5 py-3' >ADD TO CART</button>
-              <button className='btn btn-outline-secondary outline-transparent py-2 ms-4 mt-1 shadow rounded-circle'><AiOutlineHeart/></button>         
+            <button className='btn btn-outline-secondary outline-transparent py-2 ms-4 mt-1 shadow rounded-circle'><AiOutlineHeart /></button>
 
           </div>
         </div>
@@ -112,7 +126,7 @@ export default function Index() {
 
 
 
-{/* /////////////////////////////////////////////////// */}
+        {/* /////////////////////////////////////////////////// */}
 
 
 
@@ -142,18 +156,18 @@ export default function Index() {
       </div>
 
       {
-          info==='description'&&<Description />
+        info === 'description' && <Description />
       }
       {
-          info==='specification'&&<Specification />
+        info === 'specification' && <Specification />
       }
       {
-          info==='comments'&&<Comments />
+        info === 'comments' && <Comments />
       }
       {
-          info==='reviews'&&<Reviews />
+        info === 'reviews' && <Reviews />
       }
-                          
+
 
     </>
   )

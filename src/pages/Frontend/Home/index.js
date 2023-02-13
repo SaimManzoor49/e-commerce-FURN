@@ -6,15 +6,15 @@ import Third from './Third'
 import TopPicks from './TopPicks'
 import Zero from './Zero'
 
-export default function index() {
+export default function Index() {
   return (
     <>
      <Hero />
      <PopularProducts /> 
      <Zero />
-     <ProductsYouLinke />
+     {/* <ProductsYouLinke /> */}
      <Third />
-     <TopPicks />
+     {/* <TopPicks /> */}
     </>
   )
 }

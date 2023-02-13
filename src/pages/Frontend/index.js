@@ -7,7 +7,11 @@ import About from './About'
 import Contact from './Contact'
 import ProductDetails from './ProductDetails'
 
-export default function index() {
+
+
+
+export default function Index() {
+ 
   return (
     <>
     <Header />
@@ -15,7 +19,7 @@ export default function index() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/productdetails' element={<ProductDetails />} />
+        <Route path={`/productdetails/:productId`} element={<ProductDetails />} />
     </Routes>
     <Footer />
     </>

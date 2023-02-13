@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import ProductsContextProvider from './context/ProductsContext';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+     <ProductsContextProvider>
+
     <App />
+     </ProductsContextProvider>
   </React.StrictMode>
 );
 

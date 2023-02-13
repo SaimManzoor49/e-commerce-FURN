@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
+import { Link } from 'react-router-dom'
 import productsList from '../../../data/fakeProducts'
+import {Product} from '../../../context/ProductsContext'
 
 export default function ProductsYouLinke() {
     const [filteredProducts, setFilteredProducts] = useState(productsList)
     const [isActive, setIsActive] = useState(true)
     const [isLoading, setIsLoading] = useState(false)
 
-
+    const {setItemId}=useContext(Product)
 
     useEffect(() => {
 
@@ -49,21 +51,21 @@ export default function ProductsYouLinke() {
                                 <div className="card border-0 px-1 rounded">
                                     <img style={{ height: 250 }} src={filteredProducts[0].image} className="card-img-top" alt={filteredProducts[0].id} />
                                     <div className="card-body">
-                                        <h5 className="card-title text-center">{filteredProducts[0].name}</h5>
+                                          <Link to={`/productdetails/${filteredProducts[0].id}`}   onClick={setItemId(filteredProducts[0].id)} className="card-title h5 text-black text-center">{filteredProducts[0].name}</Link>
                                         <p className="card-text text-center fw-bold text-secondary fs-4">{filteredProducts[0].price}</p>
                                     </div>
                                 </div>
                                 <div className="card  border-0 px-1 rounded">
                                     <img style={{ height: 250 }} src={filteredProducts[1].image} className="card-img-top " alt={filteredProducts[1].id} />
                                     <div className="card-body">
-                                        <h5 className="card-title text-center">{filteredProducts[1].name}</h5>
+                                         <Link to={`/productdetails/${filteredProducts[1].id}`}  onClick={setItemId(filteredProducts[1].id)}  className="card-title h5 text-black text-center">{filteredProducts[1].name}</Link>
                                         <p className="card-text text-center fw-bold text-secondary fs-4">{filteredProducts[1].price}</p>
                                     </div>
                                 </div>
                                 <div className="card  border-0 px-1 rounded">
                                     <img style={{ height: 250 }} src={filteredProducts[3].image} className="card-img-top img-fluid" alt={filteredProducts[3].id} />
                                     <div className="card-body">
-                                        <h5 className="card-title text-center">{filteredProducts[3].name}</h5>
+                                         <Link to={`/productdetails/${filteredProducts[3].id}`}  onClick={setItemId(filteredProducts[3].id)}  className="card-title h5 text-black text-center">{filteredProducts[3].name}</Link>
                                         <p className="card-text text-center fw-bold text-secondary fs-4">{filteredProducts[3].price}</p>
                                     </div>
                                 </div>
