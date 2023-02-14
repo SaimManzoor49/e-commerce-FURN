@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { FiMinus } from 'react-icons/fi'
 import { GrAdd } from 'react-icons/gr'
@@ -15,41 +15,52 @@ import fakeProducts from '../../../data/fakeProducts'
 
 export default function Index() {
   let mainImg = 'https://images.unsplash.com/photo-1634643836960-c345b3c3e998?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYxMTQzMDA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
-  
+
   const [info, setInfo] = useState('reviews')
   const [count, setCount] = useState(0)
   const [viewProduct, setViewProduct] = useState(0)
   const [imgSrc, setImgSrc] = useState(mainImg)
-  
+
   const img2 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
   const img3 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
   const img4 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
   const img5 = 'https://images.unsplash.com/photo-1581539250439-c96689b516dd?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYyMTgzNzc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=600'
-  
+
+  const navigate = useNavigate();
+
   const handleInfo = (e) => {
     setInfo(e.target.value)
   }
 
-  
+
   const handleImg = (e) => {
     setImgSrc(e.target.currentSrc)
   }
-  
-  
-  
-  const {productId} = useParams()
-  
+
+
+
+  const { productId } = useParams()
+
   useEffect(() => {
-    
-    
-    const productToShow = fakeProducts.find((p)=>{
-      return productId==p.id;
-      
+
+
+    const productToShow = fakeProducts.find((p) => {
+      return productId === p.id;
+
+
     })
+    if (productToShow === undefined) {
+
+      navigate('/')
+      return
+    }
+
     setViewProduct(productToShow)
     setImgSrc(productToShow.image)
-  }, [])
-  
+  }, [productId,navigate])
+
+
+
   return (
     <>
 
@@ -58,7 +69,6 @@ export default function Index() {
       <div className="container-fluid">
         <div className="row bg-primary">
           <div className="col ms-1">
-            {/* <div className="bg-img1 ms-1"></div> */}
             <div className="position-relative">
               <img className='img-fluid' src='https://images.unsplash.com/photo-1634643836960-c345b3c3e998?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8c29mYXx8fHx8fDE2NzYxMTQzMDA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920' alt="" />
               <div className="col-4 bg-primar position-about py-2 py-md-4 px-2 px-md-5 fw-bold">
@@ -136,10 +146,10 @@ export default function Index() {
           <div className="col-12 col-md-6">
 
 
-            <button className='btn btn-outline-secondary ms-2 mt-4 rounded-5' value='description' onClick={handleInfo}>Description</button>
-            <button className='btn btn-outline-secondary ms-2 mt-4 rounded-5' value='specification' onClick={handleInfo}>Specifications</button>
-            <button className='btn btn-outline-secondary ms-2 mt-4 rounded-5' value='comments' onClick={handleInfo}>Comments</button>
-            <button className='btn btn-outline-secondary ms-2 mt-4 rounded-5' value='reviews' onClick={handleInfo}>Reviews</button>
+            <button className='btn btn-outline-secondary ms-2 mt-4 fw-bold rounded-5' value='description' onClick={handleInfo}>Description</button>
+            <button className='btn btn-outline-secondary ms-2 mt-4 fw-bold rounded-5' value='specification' onClick={handleInfo}>Specifications</button>
+            <button className='btn btn-outline-secondary ms-2 mt-4 fw-bold rounded-5' value='comments' onClick={handleInfo}>Comments</button>
+            <button className='btn btn-outline-secondary ms-2 mt-4 fw-bold rounded-5' value='reviews' onClick={handleInfo}>Reviews</button>
 
 
 

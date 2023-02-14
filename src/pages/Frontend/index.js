@@ -6,6 +6,7 @@ import Home from '../Frontend/Home'
 import About from './About'
 import Contact from './Contact'
 import ProductDetails from './ProductDetails'
+import AllProducts from './AllProducts'
 
 
 
@@ -20,6 +21,7 @@ export default function Index() {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path={`/productdetails/:productId`} element={<ProductDetails />} />
+        <Route path={`/products`} element={<AllProducts />} />
     </Routes>
     <Footer />
     </>

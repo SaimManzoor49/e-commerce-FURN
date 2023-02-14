@@ -12,9 +12,9 @@ export default function Index() {
      <Hero />
      <PopularProducts /> 
      <Zero />
-     {/* <ProductsYouLinke /> */}
+     <ProductsYouLinke />
      <Third />
-     {/* <TopPicks /> */}
+     <TopPicks />
     </>
   )
 }

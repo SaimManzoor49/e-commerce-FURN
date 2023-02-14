@@ -28,12 +28,9 @@ export default function index() {
                             </li>
 
                             <li className="nav-item">
-                                <Link to={'/page'} className="nav-link links" href="#">Page</Link>
+                                <Link to={'/products'} className="nav-link links" href="#">Products</Link>
                             </li>
 
-                            <li className="nav-item">
-                                <Link to={'blog'} className="nav-link links" href="#">Blog</Link>
-                            </li>
                             <li className="nav-item">
                                 <Link to={'/contact'} className="nav-link links" href="#">Contact</Link>
                             </li>

@@ -1,7 +1,6 @@
-import React, { useState,useContext } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import productsList from '../../../data/fakeProducts'
-import {Product} from'../../../context/ProductsContext'
 
 export default function PopularProducts() {
 const [filteredProducts , setFilteredProducts ] = useState(productsList)
@@ -10,7 +9,6 @@ const [isLoading , setIsLoading ] = useState(false)
 
 
 
-const {itemId,setItemId}=useContext(Product)
 
     const handleClick = (e)  => {
             let getTitle = e.target.value;
